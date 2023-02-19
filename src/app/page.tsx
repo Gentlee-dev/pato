@@ -1,18 +1,17 @@
 import Image from "next/image";
-import logo from "public/img/logo.png";
-// import { ReactComponent as Require  from "Util/svg/require.svg";
-import ReactComponent from "Util/svg/require.svg";
+import { Space32, Space8 } from "Components/Atoms/space";
+import logo from "/public/img/logo.png";
+import SearchInput from "Components/Atoms/searchInput";
 
 const Index = () => {
   return (
-    <div className="flex">
-      <div className="text-center m0a">
-        <Image src={logo} alt="로고" />
-        <div className="rounded-3xl border-1 leading-48">
-          <ReactComponent />
-          <input className="" type="text" />
-        </div>
+    <div className="min-h-screen pt-10">
+      <div className="flex justify-end">
+        <button>제보하기</button>
       </div>
+      <Image priority src={logo} className="mx-auto mt-100" alt="로고" />
+      <Space32 />
+      <SearchInput />
     </div>
   );
 };
