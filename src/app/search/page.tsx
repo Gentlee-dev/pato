@@ -2,6 +2,6 @@
 import SearchInput from "Components/Atoms/searchInput";
 
 const Search = () => {
-  return <SearchInput />;
+  // return <SearchInput />;
 };
 export default Search;
