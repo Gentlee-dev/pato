@@ -4,7 +4,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="kr">
       <head />
-      <body className="max-w-3xl px-20 border m0a">{children}</body>
+      <body className="max-w-3xl px-20 m0a">{children}</body>
     </html>
   );
 };
