@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Space8 } from "Components/Atoms/space";
-import SearcSVG from "/public/img/search.svg";
+// import SearcSVG from "/public/img/search.svg";
 
 const SearchInput = () => {
   const router = useRouter();
@@ -20,7 +20,7 @@ const SearchInput = () => {
       onSubmit={search}
       className="flex items-center h-48 p-8 border rounded-3xl"
     >
-      <SearcSVG />
+      {/* <SearcSVG /> */}
       <Space8 />
       <input
         value={keyword}
