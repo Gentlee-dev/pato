@@ -1,6 +1,6 @@
 import { Space16, Space8 } from "Components/Atoms/space";
-import ParkingSVG from "/public/img/parking.svg";
-import ToiletSVG from "/public/img/toilet.svg";
+import ParkingSVG from "/public/svg/parking.svg";
+import ToiletSVG from "/public/svg/toilet.svg";
 
 /**
  * 주차장, 화장실 별점 atom
