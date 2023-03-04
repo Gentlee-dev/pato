@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import MetaInfo from "../Components/Atoms/metaInfo";
 
-// More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta: Meta<typeof MetaInfo> = {
   title: "Example/MetaInfo",
   component: MetaInfo,
@@ -12,9 +11,22 @@ const meta: Meta<typeof MetaInfo> = {
 export default meta;
 type Story = StoryObj<typeof MetaInfo>;
 
-export const Primary: Story = {
+export const All: Story = {
   args: {
-    title: "제목",
-    desc: "설명",
+    title: "공사중",
+    desc: "포장마차",
+    location: "광주광역시 금남로 193-12",
+  },
+};
+export const WithDesc: Story = {
+  args: {
+    title: "공사중",
+    desc: "포장마차",
+  },
+};
+export const WithLocation: Story = {
+  args: {
+    title: "공사중",
+    location: "광주광역시 금남로 193-12",
   },
 };
