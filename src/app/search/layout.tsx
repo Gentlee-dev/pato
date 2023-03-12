@@ -4,7 +4,7 @@ import { Space24 } from "Components/Atoms/space";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="min-h-[100vh]">
       <Space24 />
       <SearchInput />
       <Space24 />

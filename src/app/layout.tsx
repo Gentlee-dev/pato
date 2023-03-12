@@ -2,9 +2,11 @@ import "./global.scss";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="kr">
+    <html lang="kr" className="">
       <head />
-      <body className="max-w-3xl px-20 m0a">{children}</body>
+      <body className="bg-gray03">
+        <div className="max-w-3xl px-20 bg-white m0a">{children}</div>
+      </body>
     </html>
   );
 };
