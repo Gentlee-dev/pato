@@ -1,4 +1,3 @@
-"use client";
 import SearchInput from "Components/Atoms/searchInput";
 import { Space24 } from "Components/Atoms/space";
 

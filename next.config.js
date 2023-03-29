@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["encrypted-tbn0.gstatic.com"],
+    domains: ["d3vyx3prc502np.cloudfront.net"],
   },
   reactStrictMode: false,
   experimental: {

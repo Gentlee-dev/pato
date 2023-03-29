@@ -2,15 +2,16 @@ import Image from "next/image";
 import { Space16, Space32, Space8 } from "Components/Atoms/space";
 import Point from "Components/Atoms/point";
 import MetaInfo from "Components/Atoms/metaInfo";
+import { Restanrant } from "types/interface";
 
-const SearchList = ({ searchList }: { searchList: any }) => {
+const SearchList = ({ restaurantList }: { restaurantList: Restanrant[] }) => {
   return (
     <>
-      {searchList.map((el: any, idx: number) => (
+      {restaurantList.map((restaurant: Restanrant, idx: number) => (
         <div className="flex py-16 border-b-1 last:border-none" key={idx}>
           <Image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU"
-            alt="고양이"
+            src={restaurant.restaurantThumbnail}
+            alt={restaurant.restaurantName}
             width={120}
             height={120}
             className="rounded-lg"
@@ -18,11 +19,14 @@ const SearchList = ({ searchList }: { searchList: any }) => {
           <Space16 />
           <div className="flex flex-col justify-center">
             <MetaInfo
-              title="공사중포차"
-              desc="포장마차"
-              location="광주광역시 금남로 193-12"
+              title={restaurant.restaurantName}
+              desc={restaurant.restaurantType}
+              location={restaurant.address}
             />
-            <Point parking={4.9} toilet={3.5} />
+            <Point
+              parking={restaurant.parkingScore}
+              toilet={restaurant.toiletScore}
+            />
           </div>
         </div>
       ))}
