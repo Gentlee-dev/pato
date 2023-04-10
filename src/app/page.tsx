@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
-import { Space16, Space32, Space8 } from "Components/Atoms/space";
+import { Space16, Space40 } from "Components/Atoms/space";
 import logo from "/public/img/logo_text.png";
-import SearchInput from "Components/Atoms/searchInput";
-import H2 from "Components/Atoms/Text/h2";
-import TextBtn from "Components/Atoms/Button/textBtn";
+import SearchInput from "Components/Atoms/Input/searchInput";
+import { Body1, Sub3 } from "Components/Atoms/Text/text";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const MOBILE_MAX = 767;
 
@@ -21,14 +21,22 @@ const Index = () => {
   return (
     <div className="min-h-screen pt-10">
       <div className="flex justify-end">
-        <TextBtn name="제보하기" />
+        <Link href="/report">
+          <Body1 title="제보하기" />
+        </Link>
       </div>
-      <Image priority src={logo} className="mx-auto mt-100" alt="로고" />
+      <Image
+        priority
+        src={logo}
+        width={222}
+        className="mx-auto mt-100"
+        alt="로고"
+      />
       <Space16 />
       <div className="flex justify-center">
-        <H2 title="주차장과 화장실에 대한 모든 것" />
+        <Sub3 title="주차장과 화장실에 대한 모든 것" color={7} />
       </div>
-      <Space32 />
+      <Space40 />
       {/* button안에 button을 넣지 못합니다. */}
       <div onClick={onClickInput}>
         <SearchInput />

@@ -1,5 +1,5 @@
 "use client";
-import SearchInput from "Components/Atoms/searchInput";
+import SearchInput from "Components/Atoms/Input/searchInput";
 
 const Search = () => {
   // return <SearchInput />;
