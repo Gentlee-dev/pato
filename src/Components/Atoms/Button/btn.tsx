@@ -1,4 +1,10 @@
-const H2 = ({ title }: { title: string }) => {
-  return <h1 className="font-medium text-black text-28 leading-36">{title}</h1>;
+const Button = ({ title, circle }: { title: string; circle: boolean }) => {
+  const typedStyle = circle ? "px-48 rounded-3xl" : "w-full rounded-lg";
+  return (
+    <button className={` text-white   bg-primary leading-48 ${typedStyle} `}>
+      {title}
+    </button>
+  );
 };
-export default H2;
+
+export default Button;
