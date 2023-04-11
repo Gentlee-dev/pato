@@ -2,14 +2,16 @@ import { AlignItems, JustifyContent } from "interface";
 
 const Flex = ({
   x,
-  y,
+  y = "items-center",
+  vertical = false,
   children,
 }: {
   x: JustifyContent;
-  y: AlignItems;
+  y?: AlignItems;
+  vertical?:boolean;
   children: React.ReactNode;
 }) => {
-  return <div className={`flex ${x} ${y}`}>{children}</div>;
+  return <div className={`flex ${vertical && "flex-col"}  ${x} ${y}`}>{children}</div>;
 };
 
 export default Flex;

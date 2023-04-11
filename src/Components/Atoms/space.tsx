@@ -14,7 +14,7 @@ export const Space40 = () => {
   return <div className="w-40 h-40" />;
 };
 export const Space48 = () => {
-  return <div className="w-48 h-8" />;
+  return <div className="w-48 h-48" />;
 };
 export const Space56 = () => {
   return <div className="w-56 h-56" />;

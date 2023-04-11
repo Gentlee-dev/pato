@@ -4,23 +4,35 @@ import { useRouter } from "next/navigation";
 import SearchSVG from "/public/svg/search.svg";
 import XSVG from "/public/svg/x.svg";
 
-const SearchInput = () => {
-  const router = useRouter();
-  const inputRef = useRef<HTMLInputElement>(null);
+const Input = ({
+  value,
+  setValue,
+  onchange
+}:{
+  value:string,
+  setValue?:React.Dispatch<React.SetStateAction<string>>,
+  onchange?:any
+}) => {
 
   const [keyword, setKeyword] = useState("");
 
-  // 검색
+  const onChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
+    const {value} = e.target
+    console.log(value)
+    setValue && setValue(value)
+  }
+
 
   return (
     <input
-      value={keyword}
-      onChange={(e) => setKeyword(e.target.value)}
-      className="w-full h-48 pl-56 outline-none bg-inherit bg-primary bg-opacity-10 rounded-xl"
+      value={value}
+      onChange={onChange}
+      className="w-full h-48 pl-16 outline-none bg-gray03 rounded-xl"
       type="text"
       placeholder="상호명, 동네명 검색"
-      ref={inputRef}
     />
   );
 };
-export default SearchInput;
+
+
+export default Input
