@@ -1,6 +1,7 @@
 import { Space16, Space8 } from "Components/Atoms/space";
 import ParkingSVG from "/public/svg/parking.svg";
 import ToiletSVG from "/public/svg/toilet.svg";
+import { Body1 } from "./Text/text";
 
 /**
  * 주차장, 화장실 별점 atom
@@ -13,13 +14,13 @@ const Point = ({ parking, toilet }: { parking: number; toilet: number }) => {
       <div className="flex">
         <ParkingSVG />
         <Space8 />
-        <span>{`${parking}`}</span>
+        <Body1 title={String(parking)} color={7} />
       </div>
       <Space16 />
       <div className="flex">
         <ToiletSVG />
         <Space8 />
-        <span>{toilet}</span>
+        <Body1 title={String(toilet)} color={7} />
       </div>
     </div>
   );
