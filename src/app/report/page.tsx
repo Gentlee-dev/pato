@@ -9,19 +9,18 @@ import { useState } from "react";
 import Input from "Components/Atoms/Input/input";
 import LabelInput from "Components/Molecules/LabelInput/labelInput";
 import Button from "Components/Atoms/Button/btn";
+import PageTitle from "Components/Molecules/PageTitle/pageTitle";
 
 const Report = () => {
-
-  const [storeName, setStoreName] = useState("")
-  const [address, setAddress] = useState("")
-
+  const [storeName, setStoreName] = useState("");
+  const [address, setAddress] = useState("");
 
   return (
     <div>
-      <Flex x="justify-center" vertical >
-      <Sub4 title="제보하기" />
-      <Space48 />
-      <ReportSVG />
+      <Flex x="justify-center" vertical>
+        <PageTitle title="제보하기" />
+        <Space48 />
+        <ReportSVG />
       </Flex>
 
       <LabelInput title="상호명" value={storeName} setValue={setStoreName} />
