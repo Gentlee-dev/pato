@@ -8,7 +8,7 @@ const SearchList = ({ searchList }: { searchList: any }) => {
   return (
     <>
       {searchList.map((el: any, idx: number) => (
-        <Link href="/search">
+        <Link href="/store/1">
           <section className="flex py-16 border-b-1 last:border-none" key={idx}>
             <Image
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU"
