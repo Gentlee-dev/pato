@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import MetaInfo from "../Components/Atoms/metaInfo";
+import MetaInfo from "../Components/Molecules/MetaInfo/metaInfo";
 
 const meta: Meta<typeof MetaInfo> = {
   title: "Example/MetaInfo",

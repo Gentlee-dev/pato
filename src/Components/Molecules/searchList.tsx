@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Space16 } from "Components/Atoms/space";
 import Point from "Components/Atoms/point";
-import MetaInfo from "Components/Atoms/metaInfo";
+import { ListMetaInfo } from "Components/Molecules/MetaInfo/metaInfo";
 import Link from "next/link";
 
 const SearchList = ({ searchList }: { searchList: any }) => {
@@ -19,7 +19,7 @@ const SearchList = ({ searchList }: { searchList: any }) => {
             />
             <Space16 />
             <div className="flex flex-col justify-center">
-              <MetaInfo
+              <ListMetaInfo
                 title="공사중포차"
                 desc="포장마차"
                 location="광주광역시 금남로 193-12"
