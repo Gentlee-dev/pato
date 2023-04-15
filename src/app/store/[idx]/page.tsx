@@ -2,12 +2,13 @@ import Button from "Components/Atoms/Button/btn";
 import Flex from "Components/Atoms/Flex/flex";
 import HR from "Components/Atoms/Hr/hr";
 import StoreThumbnail from "Components/Atoms/StoreThumbnail/storeThumbnail";
-import MetaInfo from "Components/Molecules/MetaInfo/metaInfo";
+import MetaInfo, {
+  HorizenMetaInfo,
+} from "Components/Molecules/MetaInfo/metaInfo";
 import Point from "Components/Atoms/point";
 import { Space16, Space24, Space32 } from "Components/Atoms/space";
 import PageTitle from "Components/Molecules/PageTitle/pageTitle";
 import { Body3, Body4 } from "Components/Atoms/Text/text";
-import StoreSummary from "Components/Molecules/StoreSummary/storeSummary";
 import ReviewCount from "Components/Atoms/ReviewCount/reviewCount";
 import Review from "Components/Molecules/Review/review";
 
@@ -30,20 +31,16 @@ const Store = () => {
         </div>
         <Button title="정보수정" circle size="md" />
       </Flex>
-      <Space16 />
-      <HR size={4} />
-      <Space24 />
+      <HR size={4} my={24} />
       <Flex vertical y="items-start" px={16}>
-        <StoreSummary title="주차" desc="없음" />
+        <HorizenMetaInfo title="주차" desc="없음" />
         <Space16 />
-        <StoreSummary
+        <HorizenMetaInfo
           title="화장실"
           desc="건물내부 / 남녀분리 / 비누 / 수건 / 청결도 상"
         />
       </Flex>
-      <Space24 />
-      <HR size={4} />
-      <Space24 />
+      <HR size={4} my={24} />
       <Flex vertical y="items-start" px={16}>
         <Flex x="justify-between">
           <ReviewCount count={3} />
@@ -55,10 +52,8 @@ const Store = () => {
           return (
             <>
               <Review />
-              <Space24 />
               <div className=" w-full  last:opacity-0">
-                <HR size={1} />
-                <Space24 />
+                <HR size={1} my={24} />
               </div>
             </>
           );
