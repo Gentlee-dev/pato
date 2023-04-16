@@ -16,13 +16,23 @@ const StoreThumbnail = ({ srcList }: { srcList: string[] }) => {
   }
 };
 
-const Thumbnail = ({ src }: { src: string }) => {
+export const Thumbnail = ({
+  src,
+  w = "w-full",
+  h = "f-full",
+  r = "rounded-none",
+}: {
+  src: string;
+  w?: string;
+  h?: string;
+  r?: string;
+}) => {
   return (
     <div
       style={{
         backgroundImage: `url(${src})`,
       }}
-      className={`bg-no-repeat w-full h-full bg-cover bg-center`}
+      className={`bg-no-repeat bg-cover bg-center ${w} ${h} ${r}`}
     ></div>
   );
 };

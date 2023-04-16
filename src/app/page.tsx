@@ -19,7 +19,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen pt-10">
+    <div className="min-h-screen pt-10 px-16">
       <div className="flex justify-end">
         <Link href="/report">
           <Body1 title="제보하기" />

@@ -1,4 +1,5 @@
 export const palete: { [index: number]: string } = {
+  0: "text-primary",
   1: "text-gray01",
   2: "text-gray02",
   3: "text-gray03",

@@ -32,6 +32,7 @@ module.exports = {
         gray08: "#3A4552",
         gray09: "#2A323B",
         gray10: "#161D24",
+        "black1/2": "rgba(0, 0, 0, 0.5)",
       },
     },
   },
