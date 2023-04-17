@@ -11,17 +11,19 @@ const LabelInput = ({
   value,
   setValue,
   onchange,
+  placeholder,
 }: {
   title: string;
   value: string;
   setValue?: React.Dispatch<React.SetStateAction<string>>;
   onchange?: any;
+  placeholder: string;
 }) => {
   return (
     <>
       <Body3 title={title} />
       <Space8 />
-      <Input value={value} setValue={setValue} />
+      <Input placeholder={placeholder} value={value} setValue={setValue} />
     </>
   );
 };

@@ -23,9 +23,19 @@ const Report = () => {
         <ReportSVG />
       </Flex>
 
-      <LabelInput title="상호명" value={storeName} setValue={setStoreName} />
+      <LabelInput
+        placeholder="상호명 입력"
+        title="상호명"
+        value={storeName}
+        setValue={setStoreName}
+      />
       <Space32 />
-      <LabelInput title="주소" value={address} setValue={setAddress} />
+      <LabelInput
+        placeholder="주소 입력"
+        title="주소"
+        value={address}
+        setValue={setAddress}
+      />
       <Space48 />
       <Button title="다음" />
     </div>

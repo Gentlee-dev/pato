@@ -5,3 +5,13 @@ export type JustifyContent =
   | "justify-center"
   | "justify-between";
 export type AlignItems = "items-center" | "items-start" | "items-end";
+
+export interface RadioForm {
+  idx: number;
+  label: string;
+  id: string;
+}
+export interface Option {
+  title: string;
+  option: RadioForm[];
+}
