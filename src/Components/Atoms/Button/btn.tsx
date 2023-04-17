@@ -7,7 +7,7 @@ const Button = ({
   title: string;
   circle?: boolean;
   size?: "xl" | "md";
-  onClick: () => void;
+  onClick?: () => void;
 }) => {
   const typedStyle = circle ? "rounded-3xl" : "w-full rounded-lg";
   const sizeStyle = size === "xl" ? "leading-48 px-48" : "leading-32 px-24";

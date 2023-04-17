@@ -52,7 +52,7 @@ const Store = () => {
           return (
             <>
               <Review />
-              <div className=" w-full  last:opacity-0">
+              <div className="w-full  last:opacity-0">
                 <HR size={1} my={24} />
               </div>
             </>
