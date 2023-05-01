@@ -16,7 +16,7 @@ const Report = () => {
   const [address, setAddress] = useState("");
 
   return (
-    <div>
+    <div className="px-16">
       <Flex x="justify-center" vertical>
         <PageTitle title="제보하기" />
         <Space48 />
