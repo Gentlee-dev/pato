@@ -55,7 +55,7 @@ const ReportOptions = () => {
       <Space32 />
       {OPTIONS.map((option: Option, idx: number) => {
         return (
-          <>
+          <div key={option.title}>
             <ChoiceTitle title={option.title} />
             <Radio
               dataList={option.option}
@@ -64,7 +64,7 @@ const ReportOptions = () => {
               name={option.title}
             />
             <Space16 />
-          </>
+          </div>
         );
       })}
 

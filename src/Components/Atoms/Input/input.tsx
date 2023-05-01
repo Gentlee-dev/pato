@@ -9,18 +9,20 @@ const Input = ({
   setValue,
   onchange,
   placeholder,
+  readOnly = false,
 }: {
   value: string;
   setValue?: React.Dispatch<React.SetStateAction<string>>;
   onchange?: any;
   placeholder: string;
+  readOnly?: boolean;
 }) => {
   const [keyword, setKeyword] = useState("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    console.log(value);
     setValue && setValue(value);
+    onchange && onchange(value);
   };
 
   return (
@@ -30,6 +32,7 @@ const Input = ({
       className="w-full h-48 pl-16 outline-none bg-gray03 rounded-xl"
       type="text"
       placeholder={placeholder}
+      readOnly={readOnly}
     />
   );
 };
