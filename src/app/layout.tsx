@@ -1,5 +1,5 @@
 import React from "react";
-import ReactQueryProvider from "./ReactQuery/reactQuery";
+import ReactQueryProvider from "../ReactQuery/reactQuery";
 import Provider from "Redux/provider";
 import "./global.scss";
 import Script from "next/script";
