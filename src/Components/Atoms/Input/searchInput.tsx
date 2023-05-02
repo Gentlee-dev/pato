@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import SearchSVG from "/public/svg/search.svg";
 import XSVG from "/public/svg/x.svg";
 
 const SearchInput = () => {
   const router = useRouter();
+  const pathName = usePathname();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [keyword, setKeyword] = useState("");
@@ -25,6 +26,13 @@ const SearchInput = () => {
     inputRef?.current?.focus();
   };
 
+  // 검색어 초기화
+  const initSearchText = () => {
+    if (!pathName) return;
+    const searchText = decodeURI(pathName.split("/")[2]) || "";
+    setKeyword(searchText);
+  };
+
   // X버튼 클릭
   const onClickX = () => {
     setKeyword("");
@@ -34,6 +42,9 @@ const SearchInput = () => {
   useEffect(() => {
     focusInput();
   }, []);
+  useEffect(() => {
+    initSearchText();
+  }, [pathName]);
 
   return (
     <form onSubmit={onSearch} className="relative flex items-center">
