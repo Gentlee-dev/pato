@@ -1,9 +1,23 @@
-import axios, { AxiosResponse } from "axios";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { getApi } from "./baseApi";
+import {
+  useQuery,
+  useQueryClient,
+  UseQueryResult,
+} from "@tanstack/react-query";
+import * as T from "interface";
 
-// ip체크
-export const GetIpApi = () => {
-  return useQuery([GetIpApi], () =>
-    axios.get(`https://api.ipify.org?callback=?`, {}).then(({ data }) => data)
+// 식당리스트 react-query
+export const GetRTListApi = (search: string, page: number) => {
+  const url = `rt?name=${search}&offset=${page}&limit=20`;
+  const data: UseQueryResult<{ data: T.Res<T.RT[]> }, unknown> = useQuery(
+    ["GetRTListApi"],
+    () => getApi(url)
   );
+  return data;
+};
+// 식당리스트 axios
+export const getRTListApi = (search: string, page: number) => {
+  const url = `rt?name=${search}&offset=${page}&limit=20`;
+  const data: Promise<{ data: T.Res<T.RT[]> }> = getApi(url);
+  return data;
 };

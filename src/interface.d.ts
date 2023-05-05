@@ -6,6 +6,12 @@ export type JustifyContent =
   | "justify-between";
 export type AlignItems = "items-center" | "items-start" | "items-end";
 
+export interface Res<ResData> {
+  data: ResData;
+  messesge: string;
+  status: string;
+}
+
 export interface RadioForm {
   idx: number;
   label: string;
@@ -14,4 +20,14 @@ export interface RadioForm {
 export interface Option {
   title: string;
   option: RadioForm[];
+}
+
+export interface RT {
+  id: number;
+  parkingScore: number;
+  toiletScore: number;
+  restaurantThumbnail: string;
+  restaurantName: string;
+  restaurantType: string;
+  address: string;
 }

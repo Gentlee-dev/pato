@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
-const v1 = process.env.REACT_APP_API_V1;
+const v1 = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
 // 에러status
 
@@ -26,9 +26,9 @@ const errorHandleApi = async (
 };
 
 // get api
-export const getApi = async (url: string) =>
-  errorHandleApi(() => instance().get(url));
-
+export const getApi = async (url: string) => {
+  return errorHandleApi(() => instance().get(url));
+};
 // post api
 export const postApi = async (url: string, body?: any) =>
   errorHandleApi(() => instance().post(url, body));
