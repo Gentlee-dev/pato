@@ -11,6 +11,7 @@ import PageTitle from "Components/Molecules/PageTitle/pageTitle";
 import { Body3, Body4 } from "Components/Atoms/Text/text";
 import ReviewCount from "Components/Atoms/ReviewCount/reviewCount";
 import Review from "Components/Molecules/Review/review";
+import Link from "next/link";
 
 const img =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU";
@@ -44,7 +45,14 @@ const Store = () => {
       <Flex vertical y="items-start" px={16}>
         <Flex x="justify-between">
           <ReviewCount count={3} />
-          <Button title="리뷰 남기기" circle size="md" />
+          <Link
+            href={{
+              pathname: "/postreview",
+              query: { name: "가게이름", address: "주소" },
+            }}
+          >
+            <Button title="리뷰 남기기" circle size="md" />
+          </Link>
         </Flex>
         <Space24 />
 
