@@ -29,8 +29,8 @@ const SearchInput = () => {
   // 검색어 초기화
   const initSearchText = () => {
     if (!pathName) return;
-    const searchTextlInURL = pathName.split("/")[2] || "";
-    const searchText = decodeURI(searchTextlInURL);
+    const searchTextInURL = pathName.split("/")[2] || "";
+    const searchText = decodeURI(searchTextInURL);
     setKeyword(searchText);
   };
 
