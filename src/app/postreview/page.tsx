@@ -23,9 +23,13 @@ import { Thumbnail } from "Components/Atoms/StoreThumbnail/storeThumbnail";
 import ChoiceTitle from "Components/Molecules/ChoiceTitle/choiceTitle";
 import AlertModal from "Components/Molecules/Modal/alertModal";
 
+interface PosetReviewProps {
+  searchParams: { name: string; address: string };
+}
+
 const TYPES = ["png", "jpg", "jpeg", "jfif", "JPG", "JPEG", "PNG"];
 
-const Postreview = () => {
+const Postreview = ({ searchParams }: PosetReviewProps) => {
   const [parkingPoint, setParkingPoint] = useState(5);
   const [toilietPoint, setToilietPoint] = useState(5);
   const [imgFileList, setImgFileList] = useState<File[]>([]);
@@ -86,11 +90,8 @@ const Postreview = () => {
     <div className="px-16">
       <PageTitle title="리뷰" />
       <Space48 />
-      <BigHorizenMetaInfo title="상호명" desc="인디제이" />
-      <BigHorizenMetaInfo
-        title="주소"
-        desc="광주 동구 청년창업센터2호관 4층 404호"
-      />
+      <BigHorizenMetaInfo title="상호명" desc={searchParams.name} />
+      <BigHorizenMetaInfo title="주소" desc={searchParams.address} />
 
       <HR size={1} my={24} />
 
@@ -135,7 +136,6 @@ const Postreview = () => {
       <ChoiceTitle title="리뷰를 남겨 주세요" />
       <Space8 />
       <textarea
-        onClick={() => dispatch(setModal(1))}
         placeholder={`주차장과 화장실에 대한 리뷰를 남겨주세요. 
 타인의 권리를 침해하거나 명예를 훼손하는 리뷰는 운영원칙 및 관련 법률에 제재를 받을 수 있습니다.`}
         className="w-full resize-none border-gray05 bg-gray03 border-1 rounded-lg h-150 overflow-auto p-16 font-medium text-14 leading-20"
