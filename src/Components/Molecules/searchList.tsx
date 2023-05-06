@@ -3,16 +3,18 @@ import { Space16 } from "Components/Atoms/space";
 import Point from "Components/Atoms/point";
 import { ListMetaInfo } from "Components/Molecules/MetaInfo/metaInfo";
 import Link from "next/link";
+import { RT } from "interface";
 
-const SearchList = ({ searchList }: { searchList: any }) => {
+const SearchList = ({ storeList }: { storeList: RT[] }) => {
   return (
     <>
-      {searchList.map((el: any, idx: number) => (
-        <Link href="/store/1">
+      {storeList?.map((store: RT, idx: number) => (
+        <Link href="/store/1" key={store.id}>
           <section className="flex py-16 border-b-1 last:border-none" key={idx}>
             <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU"
-              alt="고양이"
+              // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU"
+              src={store.restaurantThumbnail}
+              alt={store.restaurantName}
               width={120}
               height={120}
               className="rounded-lg"
@@ -20,11 +22,11 @@ const SearchList = ({ searchList }: { searchList: any }) => {
             <Space16 />
             <div className="flex flex-col justify-center">
               <ListMetaInfo
-                title="공사중포차"
-                desc="포장마차"
-                location="광주광역시 금남로 193-12"
+                title={store.restaurantName}
+                desc={store.restaurantType}
+                location={store.address}
               />
-              <Point parking={4.9} toilet={3.5} />
+              <Point parking={store.parkingScore} toilet={store.toiletScore} />
             </div>
           </section>
         </Link>
