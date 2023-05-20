@@ -18,6 +18,6 @@ export const GetRTListApi = (search: string, page: number) => {
 // 식당리스트 axios
 export const getRTListApi = (search: string, page: number) => {
   const url = `rt?name=${search}&offset=${page}&limit=20`;
-  const data: Promise<{ data: T.Res<T.RT[]> }> = getApi(url);
+  const data: Promise<T.Res<T.RT[]>> = getApi(url);
   return data;
 };
