@@ -57,9 +57,17 @@ const Report = () => {
         />
       </button>
       <Space48 />
-      <Link href="reportoptions">
+      <Link
+        href={{
+          pathname: "/reportoptions",
+          query: { name: storeName, address: address },
+        }}
+      >
         <Button title="다음" />
       </Link>
+      {/* <Link href="reportoptions">
+        <Button title="다음" />
+      </Link> */}
     </div>
   );
 };
