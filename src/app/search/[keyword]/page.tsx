@@ -35,14 +35,13 @@ const Search = ({ params }: { params: { keyword: string } }) => {
   );
 
   const RTList = data?.pages?.map((el) => el.data).flat();
-
   useEffect(() => {
     ref.current && observer.current.observe(ref.current);
   }, []);
 
   return (
     <div className="grid md:grid-cols-2 gap-x-50 relative">
-      {RTList && RTList?.length !== 0 ? (
+      {RTList && RTList?.length !== 0 && RTList[0].id ? (
         <SearchList storeList={RTList} />
       ) : (
         "없음"
