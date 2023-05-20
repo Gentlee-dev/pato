@@ -1,3 +1,6 @@
+export const Space4 = () => {
+  return <div className="w-4 h-4" />;
+};
 export const Space8 = () => {
   return <div className="w-8 h-8" />;
 };

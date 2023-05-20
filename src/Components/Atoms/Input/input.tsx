@@ -10,12 +10,14 @@ const Input = ({
   onchange,
   placeholder,
   readOnly = false,
+  refInput,
 }: {
   value: string;
   setValue?: React.Dispatch<React.SetStateAction<string>>;
   onchange?: any;
   placeholder: string;
   readOnly?: boolean;
+  refInput?: React.RefObject<HTMLInputElement>;
 }) => {
   const [keyword, setKeyword] = useState("");
 
@@ -33,6 +35,7 @@ const Input = ({
       type="text"
       placeholder={placeholder}
       readOnly={readOnly}
+      ref={refInput}
     />
   );
 };

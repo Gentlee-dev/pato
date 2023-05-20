@@ -31,3 +31,17 @@ export interface RT {
   restaurantType: string;
   address: string;
 }
+
+export interface PostRT {
+  isParkingLot: number;
+  parkingCapacity: number;
+  isToilet: number;
+  toiletCleanliness: number;
+  isSoap: number;
+  isPaperTowel: number;
+  locationX: number;
+  locationY: number;
+  restaurantName: string;
+  address: string;
+  reporter: string;
+}
