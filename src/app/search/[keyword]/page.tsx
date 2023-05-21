@@ -1,7 +1,7 @@
 "use client";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getRTListApi, GetRTListApi } from "Api/apis";
+import { getRTListApi } from "Api/apis";
 import SearchList from "Components/Molecules/searchList";
 import { useEffect, useRef } from "react";
 
