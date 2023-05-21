@@ -33,8 +33,8 @@ const Report = () => {
         console.log(zonecode);
         console.log(location.documents[0].y);
         console.log(location.documents[0].x);
-        setLocationX(location.documents[0].y);
-        setLocationY(location.documents[0].x);
+        setLocationX(location.documents[0].x);
+        setLocationY(location.documents[0].y);
       },
     }).open();
   };
@@ -56,12 +56,13 @@ const Report = () => {
   };
 
   // 링크이동
-  const onClickNext = () => {
+  const onClickNext = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const isPass = pass();
     if (!isPass) return;
-    router.push(`/reportoptions?adfs=asdf`);
-    //https://velog.io/@rrrrrrrrrrrocky/next-13-useRouter-%EC%BB%A4%EC%8A%A4%ED%85%80%ED%95%B4%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
-    // 여기 참고해보자
+    router.push(
+      `/reportoptions?restaurantName=${storeName}&address=${address}&locationX=${locationX}&locationY=${locationY}&`
+    );
   };
 
   return (
@@ -71,39 +72,26 @@ const Report = () => {
         <Space48 />
         <ReportSVG />
       </Flex>
-
-      <LabelInput
-        placeholder="상호명 입력"
-        title="상호명"
-        value={storeName}
-        setValue={setStoreName}
-        refInput={storeNameRef}
-      />
-      <Space32 />
-      <button className="block w-full text-left" onClick={OnOpenAddress}>
+      <form onSubmit={onClickNext}>
         <LabelInput
-          placeholder="주소 입력"
-          title="주소"
-          value={address}
-          readOnly
+          placeholder="상호명 입력"
+          title="상호명"
+          value={storeName}
+          setValue={setStoreName}
+          refInput={storeNameRef}
         />
-      </button>
-      <Space48 />
-      {/* <Link
-        href={{
-          pathname: "/reportoptions",
-
-          query: {
-            restaurantName: storeName,
-            address: address,
-            locationX,
-            locationY,
-          },
-        }}
-        as={"/reportoptions"}
-      > */}
-      <Button onClick={onClickNext} title="다음" />
-      {/* </Link> */}
+        <Space32 />
+        <button className="block w-full text-left" onClick={OnOpenAddress}>
+          <LabelInput
+            placeholder="주소 입력"
+            title="주소"
+            value={address}
+            readOnly
+          />
+        </button>
+        <Space48 />
+        <Button type="submit" title="다음" />
+      </form>
     </div>
   );
 };

@@ -41,6 +41,7 @@ const ReportOptions = ({ searchParams }: ReportREviewProps) => {
   const [reporter, setReporter] = useState("");
 
   const { restaurantName, address, locationX, locationY } = searchParams;
+  console.log(searchParams);
 
   const stateList = [
     isParkingLot,
@@ -66,8 +67,8 @@ const ReportOptions = ({ searchParams }: ReportREviewProps) => {
     const body: PostRT = {
       restaurantName,
       address,
-      locationX,
-      locationY,
+      locationX: +locationX,
+      locationY: +locationY,
       isParkingLot,
       parkingCapacity,
       isToilet,
@@ -76,7 +77,8 @@ const ReportOptions = ({ searchParams }: ReportREviewProps) => {
       isPaperTowel,
       reporter,
     };
-
+    console.log(+locationX);
+    console.log(locationY);
     console.log(body);
 
     const { data } = await postRTApi(body);
@@ -125,7 +127,7 @@ const ReportOptions = ({ searchParams }: ReportREviewProps) => {
         <ThanksSVG />
         <Space48 />
 
-        <Button title="등록하기" />
+        <Button type="submit" title="등록하기" />
       </form>
       <Space16 />
     </Flex>
