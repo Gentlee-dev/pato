@@ -14,12 +14,12 @@ import Flex from "./Flex/flex";
 const Point = ({ parking, toilet }: { parking: number; toilet: number }) => {
   return (
     <Flex>
-      <Flex>
+      <Flex full={false}>
         <BigParkingSVG />
         <Space8 />
         <Body1 title={String(parking)} color={7} />
       </Flex>
-      <Flex>
+      <Flex full={false}>
         <Space16 />
         <BigToiletSVG />
         <Space8 />
@@ -28,6 +28,7 @@ const Point = ({ parking, toilet }: { parking: number; toilet: number }) => {
     </Flex>
   );
 };
+
 export const SmallPoint = ({
   parking,
   toilet,

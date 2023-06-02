@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "Components/Atoms/Button/btn";
 import Flex from "Components/Atoms/Flex/flex";
 import HR from "Components/Atoms/Hr/hr";
@@ -12,14 +14,21 @@ import { Body3, Body4 } from "Components/Atoms/Text/text";
 import ReviewCount from "Components/Atoms/ReviewCount/reviewCount";
 import Review from "Components/Molecules/Review/review";
 import Link from "next/link";
+import { GetRTDetailApi } from "Api/apis";
 
 const img =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU";
 
-const Store = () => {
+const Store = ({ params }: { params: { idx: number } }) => {
+  const { data } = GetRTDetailApi(params.idx);
+  const store = data?.data?.restaurantDetails; // 매장정보
+  const imgList = data?.data?.restaurantImages; // 매장의 화장실, 주차장 이미지
+  const reviewList = data?.data?.restaurantReviews; // 매장 리뷰
+
+  if (!store || imgList === undefined || reviewList === undefined) return null;
   return (
     <div>
-      <PageTitle title="가게이름" />
+      <PageTitle title={store.restaurantName} />
       <Space24 />
       <div className="h-195">
         <StoreThumbnail srcList={[img]} />
@@ -27,8 +36,8 @@ const Store = () => {
       <Space32 />
       <Flex x="justify-between" px={16}>
         <div>
-          <MetaInfo title="가게이름" location="위치" />
-          <Point parking={1} toilet={1} />
+          <MetaInfo title={store.restaurantName} location={store.address} />
+          <Point parking={store.parkingScore} toilet={store.toiletScore} />
         </div>
         <Button title="정보수정" circle size="md" />
       </Flex>
@@ -45,12 +54,7 @@ const Store = () => {
       <Flex vertical y="items-start" px={16}>
         <Flex x="justify-between">
           <ReviewCount count={3} />
-          <Link
-            href={{
-              pathname: "/postreview",
-              query: { name: "가게이름", address: "주소" },
-            }}
-          >
+          <Link href={`/postreview/${params.idx}`}>
             <Button title="리뷰 남기기" circle size="md" />
           </Link>
         </Flex>
@@ -58,12 +62,12 @@ const Store = () => {
 
         {[1, 2, 3].map((el) => {
           return (
-            <>
+            <div key={el}>
               <Review />
               <div className="w-full  last:opacity-0">
                 <HR size={1} my={24} />
               </div>
-            </>
+            </div>
           );
         })}
       </Flex>

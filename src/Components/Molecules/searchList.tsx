@@ -9,10 +9,9 @@ const SearchList = ({ storeList }: { storeList: RT[] }) => {
   return (
     <>
       {storeList?.map((store: RT, idx: number) => (
-        <Link href="/store/1" key={store.id}>
+        <Link href={`/store/${store.id}`} key={store.id}>
           <section className="flex py-16 border-b-1 last:border-none" key={idx}>
             <Image
-              // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU"
               src={store.restaurantThumbnail}
               alt={store.restaurantName}
               width={120}

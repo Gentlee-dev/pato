@@ -22,6 +22,7 @@ import ImgInput from "Components/Atoms/Input/imgInput";
 import { Thumbnail } from "Components/Atoms/StoreThumbnail/storeThumbnail";
 import ChoiceTitle from "Components/Molecules/ChoiceTitle/choiceTitle";
 import AlertModal from "Components/Molecules/Modal/alertModal";
+import { GetRTDetailApi } from "Api/apis";
 
 interface PosetReviewProps {
   searchParams: { name: string; address: string };
@@ -29,11 +30,15 @@ interface PosetReviewProps {
 
 const TYPES = ["png", "jpg", "jpeg", "jfif", "JPG", "JPEG", "PNG"];
 
-const Postreview = ({ searchParams }: PosetReviewProps) => {
+// const Postreview = ({ searchParams }: PosetReviewProps) => {
+const Postreview = ({ params }: { params: { idx: number } }) => {
   const [parkingPoint, setParkingPoint] = useState(5);
   const [toilietPoint, setToilietPoint] = useState(5);
   const [imgFileList, setImgFileList] = useState<File[]>([]);
   const [imgSrcList, setImgSrcList] = useState<string[]>([]);
+
+  const { data } = GetRTDetailApi(params.idx);
+  const store = data?.data?.restaurantDetails;
 
   const dispatch = useDispatch();
 
@@ -90,8 +95,10 @@ const Postreview = ({ searchParams }: PosetReviewProps) => {
     <div className="px-16">
       <PageTitle title="리뷰" />
       <Space48 />
-      <BigHorizenMetaInfo title="상호명" desc={searchParams.name} />
-      <BigHorizenMetaInfo title="주소" desc={searchParams.address} />
+      {/* <BigHorizenMetaInfo title="상호명" desc={searchParams.name} />
+      <BigHorizenMetaInfo title="주소" desc={searchParams.address} /> */}
+      <BigHorizenMetaInfo title="상호명" desc={"1"} />
+      <BigHorizenMetaInfo title="주소" desc={"1"} />
 
       <HR size={1} my={24} />
 

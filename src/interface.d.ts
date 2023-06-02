@@ -6,12 +6,6 @@ export type JustifyContent =
   | "justify-between";
 export type AlignItems = "items-center" | "items-start" | "items-end";
 
-export interface Res<ResData> {
-  data: ResData;
-  messesge: string;
-  status: string;
-}
-
 export interface RadioForm {
   idx: number;
   label: string;
@@ -32,6 +26,8 @@ export interface RT {
   address: string;
 }
 
+export interface RTDetail {
+  restaurantId: number;
 export interface PostRT {
   isParkingLot: number;
   parkingCapacity: number;
@@ -39,6 +35,26 @@ export interface PostRT {
   toiletCleanliness: number;
   isSoap: number;
   isPaperTowel: number;
+  parkingScore: number;
+  toiletScore: number;
+  address: string;
+  restautantType: string;
+  restaurantName: string;
+}
+export interface Review {
+  reviewId: number;
+  parkingScore: number;
+  toiletScore: number;
+  title: string;
+  content: string;
+  imagePath: string;
+  createdAt: string;
+}
+
+export interface RTDetailWithfeedback {
+  restaurantDetails: RTDetail;
+  restaurantReviews: Review[];
+  restaurantImages: string[];
   locationX: number;
   locationY: number;
   restaurantName: string;

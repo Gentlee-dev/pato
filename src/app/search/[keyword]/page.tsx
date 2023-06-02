@@ -26,8 +26,8 @@ const Search = ({ params }: { params: { keyword: string } }) => {
       getNextPageParam: (lastPage, allPages) => {
         if (!lastPage?.data) return undefined;
 
-        const isMore = lastPage.data.length === 20;
-        const nextPage = allPages.length + 1;
+        const isMore = lastPage.data.length === 20; // 받아온 데이터가 20개면 다음페이지가 있는걸로 판단
+        const nextPage = allPages.length + 1; // 다음페이지
         const next = isMore ? nextPage : undefined; // 다음 데이터가 있는지 없는지 판단
         return next;
       },
@@ -35,6 +35,7 @@ const Search = ({ params }: { params: { keyword: string } }) => {
   );
 
   const RTList = data?.pages?.map((el) => el.data).flat();
+
   useEffect(() => {
     ref.current && observer.current.observe(ref.current);
   }, []);
