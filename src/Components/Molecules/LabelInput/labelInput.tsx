@@ -9,6 +9,7 @@ const LabelInput = ({
   onchange,
   placeholder,
   readOnly = false,
+  refInput,
 }: {
   title: string;
   value: string;
@@ -16,6 +17,7 @@ const LabelInput = ({
   onchange?: any;
   placeholder: string;
   readOnly?: boolean;
+  refInput?: React.RefObject<HTMLInputElement>;
 }) => {
   return (
     <>
@@ -26,6 +28,7 @@ const LabelInput = ({
         placeholder={placeholder}
         value={value}
         setValue={setValue}
+        refInput={refInput}
       />
     </>
   );

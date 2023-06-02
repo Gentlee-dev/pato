@@ -28,6 +28,7 @@ export interface RT {
 
 export interface RTDetail {
   restaurantId: number;
+export interface PostRT {
   isParkingLot: number;
   parkingCapacity: number;
   isToilet: number;
@@ -54,4 +55,9 @@ export interface RTDetailWithfeedback {
   restaurantDetails: RTDetail;
   restaurantReviews: Review[];
   restaurantImages: string[];
+  locationX: number;
+  locationY: number;
+  restaurantName: string;
+  address: string;
+  reporter: string;
 }

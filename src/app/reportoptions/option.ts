@@ -4,9 +4,9 @@ const OPTIONS: Option[] = [
   {
     title: "주차장 유/무",
     option: [
-      { idx: 0, label: "있음(무료)", id: "fee" },
-      { idx: 1, label: "있음(유료)", id: "free" },
-      { idx: 2, label: "없음", id: "nope" },
+      { idx: 0, label: "없음", id: "nope" },
+      { idx: 1, label: "있음(무료)", id: "fee" },
+      { idx: 2, label: "있음(유료)", id: "free" },
     ],
   },
   {
@@ -39,17 +39,17 @@ const OPTIONS: Option[] = [
   {
     title: "세면대 비누",
     option: [
-      { idx: 0, label: "있음(핸드워시)", id: "hand" },
+      { idx: 0, label: "없음", id: "binu_no" },
       { idx: 1, label: "있음(비누)", id: "binu" },
-      { idx: 2, label: "없음", id: "binu_no" },
+      { idx: 2, label: "있음(핸드워시)", id: "hand" },
     ],
   },
   {
     title: "세면대 페이퍼타올",
     option: [
-      { idx: 0, label: "있음", id: "paper_yes" },
-      { idx: 1, label: "없음", id: "paper_no" },
-      { idx: 2, label: "없음(수건)", id: "paper" },
+      { idx: 0, label: "없음", id: "paper_no" },
+      { idx: 1, label: "있음", id: "paper_yes" },
+      { idx: 2, label: "없음(수건)", id: "towel" },
     ],
   },
 ];
