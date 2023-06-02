@@ -2,13 +2,7 @@
 
 import { useState } from "react";
 import { BigHorizenMetaInfo } from "Components/Molecules/MetaInfo/metaInfo";
-import {
-  Space16,
-  Space32,
-  Space4,
-  Space48,
-  Space8,
-} from "Components/Atoms/space";
+import { Space16, Space32, Space4, Space48 } from "Components/Atoms/space";
 import PageTitle from "Components/Molecules/PageTitle/pageTitle";
 import HR from "Components/Atoms/Hr/hr";
 import Flex from "Components/Atoms/Flex/flex";
@@ -21,6 +15,7 @@ import LabelInput from "Components/Molecules/LabelInput/labelInput";
 import ThanksSVG from "/public/svg/thanks.svg";
 import ChoiceTitle from "Components/Molecules/ChoiceTitle/choiceTitle";
 import { postRTApi } from "Api/apis";
+import { useRouter } from "next/router";
 
 interface ReportREviewProps {
   searchParams: {
@@ -32,6 +27,8 @@ interface ReportREviewProps {
 }
 
 const ReportOptions = ({ searchParams }: ReportREviewProps) => {
+  const router = useRouter();
+
   const [isParkingLot, setIsParkingLot] = useState(-1);
   const [parkingCapacity, setParkingCapacity] = useState(-1);
   const [isToilet, setIsToilet] = useState(-1);
@@ -64,6 +61,7 @@ const ReportOptions = ({ searchParams }: ReportREviewProps) => {
     e.preventDefault();
     const confirm = window.confirm("제보 하시겠습니까?");
     if (!confirm) return;
+
     const body: PostRT = {
       restaurantName,
       address,
@@ -75,14 +73,12 @@ const ReportOptions = ({ searchParams }: ReportREviewProps) => {
       toiletCleanliness,
       isSoap,
       isPaperTowel,
-      reporter,
+      ...(reporter !== "" && { reporter }),
     };
-    console.log(+locationX);
-    console.log(locationY);
-    console.log(body);
 
-    const { data } = await postRTApi(body);
-    console.log(data);
+    await postRTApi(body);
+    alert("제보가 완료 되었습니다.");
+    router.push(`/`);
   };
 
   return (
@@ -96,6 +92,7 @@ const ReportOptions = ({ searchParams }: ReportREviewProps) => {
         <Body4 title="아래는" />
         <Space4 />
         <Body4 title="선택사항" color={0} />
+        <Space4 />
         <Body4 title="입니다" />
       </Flex>
       <Body4 title="여러분이 알고있는 다양한 정보를 파토와 공유해주세요!" />

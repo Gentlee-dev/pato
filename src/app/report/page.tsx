@@ -10,7 +10,6 @@ import PageTitle from "Components/Molecules/PageTitle/pageTitle";
 import { getIpApi } from "Api/outterApis";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
 
 const Report = () => {
   const router = useRouter();
@@ -30,9 +29,6 @@ const Report = () => {
           ? setAddress(roadAddress)
           : setAddress(address);
         const { data: location } = await getIpApi(address);
-        console.log(zonecode);
-        console.log(location.documents[0].y);
-        console.log(location.documents[0].x);
         setLocationX(location.documents[0].x);
         setLocationY(location.documents[0].y);
       },
@@ -81,7 +77,11 @@ const Report = () => {
           refInput={storeNameRef}
         />
         <Space32 />
-        <button className="block w-full text-left" onClick={OnOpenAddress}>
+        <button
+          type="button"
+          className="block w-full text-left"
+          onClick={OnOpenAddress}
+        >
           <LabelInput
             placeholder="주소 입력"
             title="주소"
