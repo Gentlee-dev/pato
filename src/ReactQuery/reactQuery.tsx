@@ -16,7 +16,6 @@ const ReactQueryProvider = ({ children }: PropsWithChildren) => {
           queries: {
             refetchOnWindowFocus: false,
             retry: 0,
-            // staleTime: 5000,
           },
         },
       })

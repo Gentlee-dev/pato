@@ -6,7 +6,6 @@ import SearchInput from "Components/Atoms/Input/searchInput";
 import { Body1, Sub3 } from "Components/Atoms/Text/text";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { getApis } from "Api/baseApi";
 
 const MOBILE_MAX = 767;
 
@@ -14,11 +13,9 @@ const Index = () => {
   const router = useRouter();
 
   // 반응형 input, 모바일일때는 페이지 이동
-  const onClickInput = async () => {
-    // if (window.innerWidth > MOBILE_MAX) return;
-    // router.push(`/search`);
-    const data = await getApis(";afds");
-    console.log(data);
+  const onClickInput = () => {
+    if (window.innerWidth > MOBILE_MAX) return;
+    router.push(`/search`);
   };
 
   return (

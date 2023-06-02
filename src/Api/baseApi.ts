@@ -74,14 +74,3 @@ export const usePutQuery = (key: any, url: string, body: any) => {
   queryClient.invalidateQueries(key);
   return data;
 };
-
-export const getApis = async (url: string) => {
-  try {
-    const data = await axios.get("https://www.udemy.com/api-2.0/courses/");
-    return data;
-  } catch (err) {
-    alert("문제가 발생했습니다. 다시 시도해주세요");
-    console.log(err);
-  } finally {
-  }
-};

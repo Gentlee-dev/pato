@@ -21,9 +21,9 @@ const img =
 
 const Store = ({ params }: { params: { idx: number } }) => {
   const { data } = GetRTDetailApi(params.idx);
-  const store = data?.data?.restaurantDetails;
-  const imgList = data?.data?.restaurantImages;
-  const reviewList = data?.data?.restaurantReviews;
+  const store = data?.data?.restaurantDetails; // 매장정보
+  const imgList = data?.data?.restaurantImages; // 매장의 화장실, 주차장 이미지
+  const reviewList = data?.data?.restaurantReviews; // 매장 리뷰
 
   if (!store || imgList === undefined || reviewList === undefined) return null;
   return (
