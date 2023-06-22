@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import PickImg from "/public/svg/PickImg.svg";
+import PickImg from "/public/svg/pickImg.svg";
 
 const ACCEPT = [".png", ".jpg", ".jpeg", ".jfif", ".JPG", ".JPEG", ".PNG"];
 
