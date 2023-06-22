@@ -47,7 +47,7 @@ const Search = ({ params }: { params: { keyword: string } }) => {
       ) : (
         "없음"
       )}
-      <div className="opacity-0 h-500 absolute bottom-0" ref={ref}>
+      <div className="opacity-0 absolute bottom-0" ref={ref}>
         리스트 불러오는중
       </div>
     </div>

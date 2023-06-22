@@ -7,7 +7,7 @@ import PageTitle from "Components/Molecules/PageTitle/pageTitle";
 import HR from "Components/Atoms/Hr/hr";
 import Flex from "Components/Atoms/Flex/flex";
 import { Body3, Body4 } from "Components/Atoms/Text/text";
-import OPTIONS from "./option";
+import OPTIONS from "Util/option";
 import Radio from "Components/Atoms/Radio/radio";
 import { Option, PostRT } from "interface";
 import Button from "Components/Atoms/Button/btn";
@@ -15,7 +15,7 @@ import LabelInput from "Components/Molecules/LabelInput/labelInput";
 import ThanksSVG from "/public/svg/thanks.svg";
 import ChoiceTitle from "Components/Molecules/ChoiceTitle/choiceTitle";
 import { postRTApi } from "Api/apis";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface ReportREviewProps {
   searchParams: {

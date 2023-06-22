@@ -54,6 +54,20 @@ export interface PostRT {
   isPaperTowel: number;
   reporter?: string;
 }
+export interface PutRT {
+  isParkingLot: number;
+  parkingCapacity: number;
+  isToilet: number;
+  toiletCleanliness: number;
+  isSoap: number;
+  isPaperTowel: number;
+}
+export interface PostReview {
+  restaurantId: number;
+  parkingScore: number;
+  toiletScore: number;
+  reviewContent: string;
+}
 
 export interface Review {
   reviewId: number;
@@ -61,7 +75,7 @@ export interface Review {
   toiletScore: number;
   title: string;
   content: string;
-  imagePath: string;
+  imagePath: string[];
   createdAt: string;
 }
 

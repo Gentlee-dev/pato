@@ -1,4 +1,4 @@
-import { getApi, postApi } from "./baseApi";
+import { getApi, postApi, putApi } from "./baseApi";
 import {
   useQuery,
   useQueryClient,
@@ -34,6 +34,18 @@ export const GetRTDetailApi = (storeIdx: number) => {
 // 식당제보
 export const postRTApi = (body: T.PostRT) => {
   const url = `rt`;
+  const data: Promise<any> = postApi(url, body);
+  return data;
+};
+// 식당수정
+export const putRTApi = (body: T.PutRT) => {
+  const url = `rt`;
+  const data: Promise<any> = putApi(url, body);
+  return data;
+};
+// 매장리뷰
+export const postReviewApi = (body: T.PostReview) => {
+  const url = `rt/reviews`;
   const data: Promise<any> = postApi(url, body);
   return data;
 };

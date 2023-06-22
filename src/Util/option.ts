@@ -31,9 +31,9 @@ const OPTIONS: Option[] = [
   {
     title: "화장실 청결도",
     option: [
-      { idx: 0, label: "상", id: "top" },
-      { idx: 1, label: "중", id: "mid" },
-      { idx: 2, label: "하", id: "bottom" },
+      { idx: 0, label: "아주 깨끗함", id: "top" },
+      { idx: 1, label: "깨끗함", id: "mid" },
+      { idx: 2, label: "하지 않음", id: "bottom" },
     ],
   },
   {
@@ -53,5 +53,44 @@ const OPTIONS: Option[] = [
     ],
   },
 ];
+
+interface OnlyOption {
+  [idx: number]: string;
+}
+export const ONLY_OPTIONS: {
+  [idx: string]: OnlyOption;
+} = {
+  isParkingLot: {
+    0: "없음",
+    1: "무료",
+    2: "유료",
+  },
+  parkingCapacity: {
+    0: "1~5대",
+    1: "~10대",
+    2: "~30대",
+    3: "대형",
+  },
+  isToilet: {
+    0: "없음",
+    1: "내부 / 남녀분리",
+    2: "내부 / 남녀공용",
+    3: "외부 / 남녀분리",
+    4: "외부 / 남녀공용",
+  },
+  toiletCleanliness: {
+    0: "아주 깨끗함",
+    1: "깨끗함",
+    2: "깨끗하지 않음",
+  },
+  isSoap: {
+    1: "비누",
+    2: "핸드워시",
+  },
+  isPaperTowel: {
+    0: "페이퍼타올",
+    1: "수건",
+  },
+};
 
 export default OPTIONS;
