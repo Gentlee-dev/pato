@@ -34,7 +34,7 @@ const Review = ({ review }: { review: Review }) => {
   };
 
   const onClickImg = (url: string) => {
-    console.log(url);
+    console.log(1);
   };
   return (
     <Flex vertical y="items-start">
