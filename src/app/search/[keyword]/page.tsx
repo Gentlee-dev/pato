@@ -3,19 +3,20 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getRTListApi } from "Api/apis";
 import SearchList from "Components/Molecules/searchList";
-import { useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 
 const OPTION = {
   rootMargin: "100px",
   threshold: 0.1,
 };
 
-const Search = ({ params }: { params: { keyword: string } }) => {
+const SearchKeyword = ({ params }: { params: { keyword: string } }) => {
   const keyword = params.keyword;
   const ref = useRef<HTMLDivElement>(null);
-  const observer = useRef(
-    new IntersectionObserver(() => fetchNextPage(), OPTION)
-  );
+  const observer: any = useRef();
+  useEffect(() => {
+    observer.current = new IntersectionObserver(() => fetchNextPage(), OPTION);
+  }, []);
 
   const { data, fetchNextPage } = useInfiniteQuery(
     ["RTList", keyword],
@@ -53,4 +54,4 @@ const Search = ({ params }: { params: { keyword: string } }) => {
     </div>
   );
 };
-export default Search;
+export default SearchKeyword;
