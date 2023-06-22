@@ -23,9 +23,7 @@ const Address = () => {
     setIsOpen(true);
     // 현재 scroll 위치를 저장해놓는다.
     new daum.Postcode({
-      oncomplete: (data: any) => {
-        console.log(data);
-      },
+      oncomplete: (data: any) => {},
       // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
       onresize: function (size: any) {
         // element_wrap.style.height = size.height+'px';

@@ -39,7 +39,6 @@ const ReportOptions = ({ searchParams }: any) => {
   const [reporter, setReporter] = useState("");
 
   const { restaurantName, address, locationX, locationY } = searchParams;
-  console.log(searchParams);
 
   const stateList = [
     isParkingLot,

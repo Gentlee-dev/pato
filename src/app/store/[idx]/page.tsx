@@ -29,8 +29,6 @@ const Store = ({ params }: { params: { idx: number } }) => {
   const imgList = data?.data?.restaurantImages; // 매장의 화장실, 주차장 이미지
   const reviewList = data?.data?.restaurantReviews; // 매장 리뷰
 
-  console.log(reviewList);
-
   const [toiletTextInfo, setToiletTextInfo] = useState("");
   const [parkingTextInfo, setParkingTextInfo] = useState("");
 
