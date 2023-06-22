@@ -8,6 +8,7 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}", // pages폴더 안의 모든폴더 안의 모든 파일들, 중괄호 안에는 확장자 (한개만 쓸거면 중괄호 없어도 됨)
     "./src/app/**/*.{js,jsx,ts,tsx}",
+    "./src/Components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -21,6 +22,17 @@ module.exports = {
         primary: "#3888EE",
         success: "#5FBC88",
         error: "#E74456",
+        gray01: "#FDFDFD",
+        gray02: "#FDFDFD",
+        gray03: "#F7F8F9",
+        gray04: "#E9EBEE",
+        gray05: "#E7E7E7",
+        gray06: "#C5C8CD",
+        gray07: "#C5C8CD",
+        gray08: "#3A4552",
+        gray09: "#2A323B",
+        gray10: "#161D24",
+        "black1/2": "rgba(0, 0, 0, 0.5)",
       },
     },
   },
