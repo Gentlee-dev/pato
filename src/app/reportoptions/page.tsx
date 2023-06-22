@@ -17,16 +17,14 @@ import ChoiceTitle from "Components/Molecules/ChoiceTitle/choiceTitle";
 import { postRTApi } from "Api/apis";
 import { useRouter } from "next/navigation";
 
-interface ReportREviewProps {
-  searchParams: {
-    restaurantName: string;
-    address: string;
-    locationX: number;
-    locationY: number;
-  };
+interface ReportReviewProps {
+  restaurantName: string;
+  address: string;
+  locationX: number;
+  locationY: number;
 }
 
-const ReportOptions = ({ searchParams }: ReportREviewProps) => {
+const ReportOptions = ({ searchParams }: { searchParams: any }) => {
   const router = useRouter();
 
   const [isParkingLot, setIsParkingLot] = useState(-1);
