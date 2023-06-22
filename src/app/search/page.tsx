@@ -1,7 +1,6 @@
-"use client";
 import SearchInput from "Components/Atoms/Input/searchInput";
 
 const Search = () => {
-  // return <SearchInput />;
+  return <></>;
 };
 export default Search;

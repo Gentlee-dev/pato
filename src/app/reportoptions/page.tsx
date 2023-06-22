@@ -16,15 +16,18 @@ import ThanksSVG from "/public/svg/thanks.svg";
 import ChoiceTitle from "Components/Molecules/ChoiceTitle/choiceTitle";
 import { postRTApi } from "Api/apis";
 import { useRouter } from "next/navigation";
+import { NextPage } from "next";
 
 interface ReportReviewProps {
-  restaurantName: string;
-  address: string;
-  locationX: number;
-  locationY: number;
+  searchParams: {
+    restaurantName: string;
+    address: string;
+    locationX: number;
+    locationY: number;
+  };
 }
 
-const ReportOptions = ({ searchParams }: { searchParams: any }) => {
+const ReportOptions = ({ searchParams }: any) => {
   const router = useRouter();
 
   const [isParkingLot, setIsParkingLot] = useState(-1);
