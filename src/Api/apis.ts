@@ -44,7 +44,7 @@ export const putRTApi = (body: T.PutRT) => {
   return data;
 };
 // 매장리뷰
-export const postReviewApi = (body: T.PostReview) => {
+export const postReviewApi = (body: FormData) => {
   const url = `rt/reviews`;
   const data: Promise<any> = postApi(url, body);
   return data;

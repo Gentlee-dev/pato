@@ -24,7 +24,8 @@ import ChoiceTitle from "Components/Molecules/ChoiceTitle/choiceTitle";
 import AlertModal from "Components/Molecules/Modal/alertModal";
 import { GetRTDetailApi, postReviewApi } from "Api/apis";
 import { RTDetail } from "interface";
-import Address from "Components/Atoms/Address/address";
+import { useRouter } from "next/navigation";
+import { setFormData } from "Util/function";
 
 interface PosetReviewProps {
   searchParams: { name: string; address: string };
@@ -34,10 +35,11 @@ const TYPES = ["png", "jpg", "jpeg", "jfif", "JPG", "JPEG", "PNG"];
 
 // const Postreview = ({ searchParams }: PosetReviewProps) => {
 const Postreview = ({ params }: { params: { idx: number } }) => {
+  const router = useRouter();
   const [parkingScore, setParkingScore] = useState(5);
   const [toiletScore, setToiletScore] = useState(5);
-  const [imgFileList, setImgFileList] = useState<File[]>([]);
-  const [imgSrcList, setImgSrcList] = useState<string[]>([]);
+  const [imgFileList, setImgFileList] = useState<File[]>([]); // 이미지 파일
+  const [imgSrcList, setImgSrcList] = useState<string[]>([]); // 이미지 미리보기
   const [reviewContent, setReviewContent] = useState("");
 
   const { data } = GetRTDetailApi(params.idx);
@@ -73,10 +75,8 @@ const Postreview = ({ params }: { params: { idx: number } }) => {
       setImgSrcList((imgsrcList: string[]) => imgsrcList.concat(src));
     };
     reader.readAsDataURL(files[0]);
-
     // 파일추가
-    setImgFileList((imgFileList: File[]) => imgFileList.concat(files[0]));
-
+    setImgFileList([...imgFileList, files[0]]);
     e.target.value = "";
   };
   const onClickImg = (idx: number) => {
@@ -101,15 +101,23 @@ const Postreview = ({ params }: { params: { idx: number } }) => {
       reviewContent,
     };
 
-    await postReviewApi(body);
+    const formData: FormData = new FormData();
+    setFormData(formData, body);
+    console.log(imgFileList);
+    for (let img of imgFileList) {
+      console.log(img);
+      formData.append("reviewImage", img);
+    }
+
+    await postReviewApi(formData);
+    alert("리뷰 등록이 완료 되었습니다.");
+    router.push(`/store/${params.idx}`);
   };
 
   return (
-    <div className="px-16">
+    <div className="px-16" onClick={() => console.log(imgFileList)}>
       <PageTitle title="리뷰" />
       <Space48 />
-      {/* <BigHorizenMetaInfo title="상호명" desc={searchParams.name} />
-      <BigHorizenMetaInfo title="주소" desc={searchParams.address} /> */}
       <BigHorizenMetaInfo title="상호명" desc={restaurantName} />
       <BigHorizenMetaInfo title="주소" desc={address} />
 

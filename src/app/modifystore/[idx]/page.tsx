@@ -55,6 +55,7 @@ const ReportOptions = ({ params }: { params: { idx: number } }) => {
     if (!confirm) return;
 
     const body: PutRT = {
+      restaurantId: +params.idx,
       isParkingLot,
       parkingCapacity,
       isToilet,

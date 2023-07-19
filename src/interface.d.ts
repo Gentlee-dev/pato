@@ -55,6 +55,7 @@ export interface PostRT {
   reporter?: string;
 }
 export interface PutRT {
+  restaurantId: number;
   isParkingLot: number;
   parkingCapacity: number;
   isToilet: number;
