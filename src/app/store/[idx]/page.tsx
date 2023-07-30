@@ -18,17 +18,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ONLY_OPTIONS } from "Util/option";
 
-const img =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsmYq7E0-ZWq3ELw9Xy7Je84KNAZ5BFDYkQ&usqp=CAU";
-
 const Store = ({ params }: { params: { idx: number } }) => {
   const router = useRouter();
   const { data } = GetRTDetailApi(params.idx);
   const store = data?.data?.restaurantDetails; // 매장정보
   const imgList = data?.data?.restaurantImages; // 매장의 화장실, 주차장 이미지
   const reviewList = data?.data?.restaurantReviews; // 매장 리뷰
-
-  console.log(data);
 
   const [toiletTextInfo, setToiletTextInfo] = useState("");
   const [parkingTextInfo, setParkingTextInfo] = useState("");
