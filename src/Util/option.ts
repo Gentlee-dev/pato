@@ -4,7 +4,7 @@ const OPTIONS: Option[] = [
   {
     title: "주차장 유/무",
     option: [
-      { idx: 0, label: "없음", id: "nope" },
+      { idx: 0, label: "없음", id: "parking_no" },
       { idx: 1, label: "있음(무료)", id: "fee" },
       { idx: 2, label: "있음(유료)", id: "free" },
     ],
@@ -21,7 +21,7 @@ const OPTIONS: Option[] = [
   {
     title: "화장실 유/무",
     option: [
-      { idx: 0, label: "없음", id: "nope" },
+      { idx: 0, label: "없음", id: "toilet_no" },
       { idx: 1, label: "있음(내부/남녀분리)", id: "in_private" },
       { idx: 2, label: "있음(내부/남녀공용)", id: "in_public" },
       { idx: 3, label: "있음(외부/남녀분리)", id: "out_private" },
