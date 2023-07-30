@@ -2,6 +2,7 @@ const HEIGHT = "h-195";
 const HALF_HEIGHT = "h-97";
 
 const StoreThumbnail = ({ srcList }: { srcList: string[] }) => {
+  console.log(srcList);
   switch (srcList.length) {
     case 1:
       return <Thumbnail1 srcList={srcList} />;
@@ -19,7 +20,7 @@ const StoreThumbnail = ({ srcList }: { srcList: string[] }) => {
 export const Thumbnail = ({
   src,
   w = "w-full",
-  h = "f-full",
+  h = "h-full",
   r = "rounded-none",
 }: {
   src: string;

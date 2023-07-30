@@ -4,15 +4,10 @@ import Point, { SmallPoint } from "Components/Atoms/point";
 import { Space16, Space8 } from "Components/Atoms/space";
 import { Review } from "interface";
 import { Thumbnail } from "Components/Atoms/StoreThumbnail/storeThumbnail";
+import { convertToDate } from "Util/function";
 
 const Review = ({ review }: { review: Review }) => {
-  const {
-    content,
-    createdAt,
-    parkingScore,
-    toiletScore,
-    imagePath: imgList,
-  } = review;
+  const { content, createdAt, parkingScore, toiletScore, images } = review;
 
   const reviewTitle = (): string => {
     let sum = toiletScore + parkingScore;
@@ -33,25 +28,25 @@ const Review = ({ review }: { review: Review }) => {
     return text;
   };
 
-  const onClickImg = (url: string) => {
-    console.log(1);
-  };
+  const onClickImg = (url: string) => {};
   return (
     <Flex vertical y="items-start">
       <Flex x="justify-between">
         <Body3 title={reviewTitle()} />
-        <Caption2 title={createdAt} color={7} />
+        <Caption2 title={convertToDate(createdAt)} color={7} />
       </Flex>
       <Space8 />
-      <Body4 title={content} />
+      <Body4 title={content} color={7} />
       <Space16 />
-      {imgList.map((img, idx) => {
-        return (
-          <button key={idx} onClick={() => onClickImg(img)}>
-            <Thumbnail src={img} w="w-63" h="h-63" r="rounded-lg" />
-          </button>
-        );
-      })}
+      <Flex gap={8}>
+        {images?.map((img, idx) => {
+          return (
+            <button key={idx} onClick={() => onClickImg(img)}>
+              <Thumbnail src={img} w="w-63" h="h-63" r="rounded-lg" />
+            </button>
+          );
+        })}
+      </Flex>
       <Space16 />
       <SmallPoint parking={parkingScore} toilet={toiletScore} />
     </Flex>

@@ -23,11 +23,12 @@ const img =
 
 const Store = ({ params }: { params: { idx: number } }) => {
   const router = useRouter();
-
   const { data } = GetRTDetailApi(params.idx);
   const store = data?.data?.restaurantDetails; // 매장정보
   const imgList = data?.data?.restaurantImages; // 매장의 화장실, 주차장 이미지
   const reviewList = data?.data?.restaurantReviews; // 매장 리뷰
+
+  console.log(data);
 
   const [toiletTextInfo, setToiletTextInfo] = useState("");
   const [parkingTextInfo, setParkingTextInfo] = useState("");
@@ -68,11 +69,11 @@ const Store = ({ params }: { params: { idx: number } }) => {
 
   if (!store || !imgList || !reviewList) return null;
   return (
-    <div>
+    <div className="px-16">
       <PageTitle title={store.restaurantName} />
       <Space24 />
       <div className="h-195">
-        <StoreThumbnail srcList={[img]} />
+        <StoreThumbnail srcList={imgList} />
       </div>
       <Space32 />
       <Flex x="justify-between" px={16}>
@@ -91,7 +92,7 @@ const Store = ({ params }: { params: { idx: number } }) => {
       <HR size={4} my={24} />
       <Flex vertical y="items-start" px={16}>
         <Flex x="justify-between">
-          <ReviewCount count={3} />
+          <ReviewCount count={reviewList?.length} />
           <Link href={`/postreview/${params.idx}`}>
             <Button title="리뷰 남기기" circle size="md" />
           </Link>
@@ -101,11 +102,11 @@ const Store = ({ params }: { params: { idx: number } }) => {
         {/* {[1, 2, 3].map((el) => { */}
         {reviewList.map((review) => {
           return (
-            <div key={review.reviewId}>
+            <div
+              className="w-full py-24 border-b-2 last:border-none"
+              key={review.reviewId}
+            >
               <Review review={review} />
-              <div className="w-full  last:opacity-0">
-                <HR size={1} my={24} />
-              </div>
             </div>
           );
         })}

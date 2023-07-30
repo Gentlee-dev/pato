@@ -55,6 +55,7 @@ export interface PostRT {
   reporter?: string;
 }
 export interface PutRT {
+  restaurantId: number;
   isParkingLot: number;
   parkingCapacity: number;
   isToilet: number;
@@ -75,7 +76,7 @@ export interface Review {
   toiletScore: number;
   title: string;
   content: string;
-  imagePath: string[];
+  images: string[];
   createdAt: string;
 }
 

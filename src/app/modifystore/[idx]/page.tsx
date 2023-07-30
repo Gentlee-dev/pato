@@ -21,16 +21,16 @@ const ReportOptions = ({ params }: { params: { idx: number } }) => {
   const { data } = GetRTDetailApi(params.idx);
   const store = data?.data?.restaurantDetails; // 매장정보
 
-  const [isParkingLot, setIsParkingLot] = useState(store?.isParkingLot || -1);
+  const [isParkingLot, setIsParkingLot] = useState(store?.isParkingLot || 0);
   const [parkingCapacity, setParkingCapacity] = useState(
-    store?.parkingCapacity || -1
+    store?.parkingCapacity || 0
   );
-  const [isToilet, setIsToilet] = useState(store?.isToilet || -1);
+  const [isToilet, setIsToilet] = useState(store?.isToilet || 0);
   const [toiletCleanliness, setToiletCleanliness] = useState(
-    store?.toiletCleanliness || -1
+    store?.toiletCleanliness || 0
   );
-  const [isSoap, setIsSoap] = useState(store?.isSoap || -1);
-  const [isPaperTowel, setIsPaperTowel] = useState(store?.isPaperTowel || -1);
+  const [isSoap, setIsSoap] = useState(store?.isSoap || 0);
+  const [isPaperTowel, setIsPaperTowel] = useState(store?.isPaperTowel || 0);
 
   const stateList = [
     isParkingLot,
@@ -55,6 +55,7 @@ const ReportOptions = ({ params }: { params: { idx: number } }) => {
     if (!confirm) return;
 
     const body: PutRT = {
+      restaurantId: +params.idx,
       isParkingLot,
       parkingCapacity,
       isToilet,
