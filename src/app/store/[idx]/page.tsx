@@ -28,6 +28,8 @@ const Store = ({ params }: { params: { idx: number } }) => {
   const imgList = data?.data?.restaurantImages; // 매장의 화장실, 주차장 이미지
   const reviewList = data?.data?.restaurantReviews; // 매장 리뷰
 
+  console.log(data);
+
   const [toiletTextInfo, setToiletTextInfo] = useState("");
   const [parkingTextInfo, setParkingTextInfo] = useState("");
 
@@ -71,7 +73,7 @@ const Store = ({ params }: { params: { idx: number } }) => {
       <PageTitle title={store.restaurantName} />
       <Space24 />
       <div className="h-195">
-        <StoreThumbnail srcList={[img]} />
+        <StoreThumbnail srcList={imgList} />
       </div>
       <Space32 />
       <Flex x="justify-between" px={16}>
@@ -100,11 +102,11 @@ const Store = ({ params }: { params: { idx: number } }) => {
         {/* {[1, 2, 3].map((el) => { */}
         {reviewList.map((review) => {
           return (
-            <div className="w-full" key={review.reviewId}>
+            <div
+              className="w-full py-24 border-b-2 last:border-none"
+              key={review.reviewId}
+            >
               <Review review={review} />
-              <div className="w-full  last:opacity-0">
-                <HR size={1} my={24} />
-              </div>
             </div>
           );
         })}

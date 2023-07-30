@@ -41,13 +41,13 @@ export const SmallPoint = ({
       <Flex>
         <ParkingSVG />
         <Space8 />
-        <Body4 title={String(parking)} color={8} />
+        <Body4 title={String(parking || "-")} color={8} />
       </Flex>
       <Space16 />
       <Flex>
         <ToiletSVG />
         <Space8 />
-        <Body4 title={String(toilet)} color={8} />
+        <Body4 title={String(toilet || "-")} color={8} />
       </Flex>
     </Flex>
   );

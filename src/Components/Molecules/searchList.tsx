@@ -13,8 +13,8 @@ const SearchList = ({ storeList }: { storeList: RT[] }) => {
         <Link href={`/store/${store.id}`} key={store.id}>
           <section className="flex py-16 border-b-1 last:border-none" key={idx}>
             <Image
-              // src={store.restaurantThumbnail}
-              src={logo}
+              src={store.restaurantThumbnail || logo}
+              // src={logo}
               alt={store.restaurantName}
               width={120}
               height={120}

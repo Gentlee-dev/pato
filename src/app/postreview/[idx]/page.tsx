@@ -103,9 +103,7 @@ const Postreview = ({ params }: { params: { idx: number } }) => {
 
     const formData: FormData = new FormData();
     setFormData(formData, body);
-    console.log(imgFileList);
     for (let img of imgFileList) {
-      console.log(img);
       formData.append("reviewImage", img);
     }
 
@@ -115,7 +113,7 @@ const Postreview = ({ params }: { params: { idx: number } }) => {
   };
 
   return (
-    <div className="px-16" onClick={() => console.log(imgFileList)}>
+    <div className="px-16">
       <PageTitle title="리뷰" />
       <Space48 />
       <BigHorizenMetaInfo title="상호명" desc={restaurantName} />

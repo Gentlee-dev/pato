@@ -76,7 +76,7 @@ export interface Review {
   toiletScore: number;
   title: string;
   content: string;
-  imagePath: string[];
+  images: string[];
   createdAt: string;
 }
 
