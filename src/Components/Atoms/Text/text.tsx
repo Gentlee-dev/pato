@@ -73,7 +73,12 @@ export const Sub3 = ({
   color?: Palete;
 }) => {
   return (
-    <h5 className={`font-bold ${palete[color]} text-20 leading-26`}>{title}</h5>
+    <h5
+      style={{ fontSize: "64px" }}
+      className={`fuck font-bold ${palete[color]} text-20 leading-26`}
+    >
+      {title}
+    </h5>
   );
 };
 
